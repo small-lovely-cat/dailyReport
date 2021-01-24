@@ -98,7 +98,7 @@ def main(cookie):
         Time_1or2 = "2"
     else:
         Time_1or2 = "1"
-    reportData = {"date": date, "temperature": "", "county": "宝山区",
+    reportData = {"date": date, "temperature": "", "county": "静安区",
                   "campusLocation": "宝山", "Time_1or2": Time_1or2,
                   "location": "具体地址"}  # county：所在区   cmapusLocation:所在校区
 
