@@ -125,8 +125,8 @@ def main(cookie):
   
     #print(Sheng, Shi, Xian, detailedLocation, F_State_Shi, F_State_Xian)
     reportData = {"date": date,
-                "campusLocation": "不在校", "location": detailedLocation, "sheng": Sheng, "shi": Shi,
-                "xian": Xian, "F_State_Shi": F_State_Shi, "F_State_Xian": F_State_Xian}
+                "campusLocation": "不在校", "location": "延长中路628弄43号501室", "sheng": "上海", "shi":"上海市",
+                "xian": "静安区", "F_State_Shi": "上海市", "F_State_Xian": "静安区"}
     reportSuccess = daily_report(cookie, reportData)
     if (reportSuccess) == -1:
         print("报送失败")
