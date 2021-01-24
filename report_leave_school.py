@@ -1,4 +1,3 @@
-
 # -*- coding:UTF-8 -*-
 import requests
 import datetime
@@ -47,15 +46,18 @@ def daily_report(cookie,reportData,delayReport = False):  #最后个参数是补
         "p1$GuoNei": "国内",
         "p1$ddlGuoJia$Value": "-1",
         "p1$ddlGuoJia": "选择国家",
-        "p1$ShiFSH":"是",
-        "p1$ShiFZX":"否",
-        "p1$ddlSheng$Value": "上海",
-        "p1$ddlSheng":  "上海",
-        "p1$ddlShi$Value": "上海市",#当天所在市
-        "p1$ddlShi": "上海市",
-        "p1$ddlXian$Value": "静安区",
-        "p1$ddlXian": "静安区",
-        "p1$XiangXDZ": "延长中路628弄43号501室",
+        "p1$ShiFSH":"是",	
+	"p1$ShiFZX":"否",
+        "p1$ddlSheng$Value": reportData["sheng"],  #当天所在省
+        "p1$ddlSheng":  reportData["sheng"],
+        "p1$ddlShi$Value": reportData["shi"],#当天所在市
+        "p1$ddlShi": reportData["shi"],
+        "p1$ddlXian$Value": reportData["xian"],
+        "p1$ddlXian": reportData["xian"],
+        "p1$XiangXDZ": reportData["location"],
+        # "p1$ddlXian$Value": reportData["county"],#当天所在县
+        # "p1$ddlXian": reportData["county"],
+       # "p1$XiangXDZ": reportData["location"],
         "p1$FengXDQDL": "否",
         "p1$TongZWDLH": "否",
         "p1$CengFWH": "否",
@@ -122,11 +124,17 @@ def main(cookie):
     date = timeLocal.strftime('%Y - %m - %d')
     reportUrl = "https://selfreport.shu.edu.cn/DayReport.aspx"
     response = requests.get(reportUrl, cookies=cookie)
-  
+    LastInformation= re.findall("\"SelectedValueArray\":\[\"(.*?)\"", response.text)     #获取上次报送信息
+    Sheng = LastInformation[3]          #省
+    Shi = LastInformation[4]            #市
+    Xian = LastInformation[5]           #县
+    detailedLocation = "延长中路638弄43号501室"
+    F_State_Shi = json.loads( re.findall("\"F_Items\":(.*?),\"SelectedValueArray\"", response.text)[10])
+    F_State_Xian = json.loads(re.findall("\"F_Items\":(.*?),\"SelectedValueArray\"", response.text)[11])
     #print(Sheng, Shi, Xian, detailedLocation, F_State_Shi, F_State_Xian)
     reportData = {"date": date,
-                "campusLocation": "不在校", "location": "延长中路628弄43号501室", "sheng": "上海", "shi":"上海市",
-                "xian": "静安区", "F_State_Shi": "上海市", "F_State_Xian": "静安区"}
+                "campusLocation": "不在校", "location": detailedLocation, "sheng": Sheng, "shi": Shi,
+                "xian": Xian, "F_State_Shi": F_State_Shi, "F_State_Xian": F_State_Xian}
     reportSuccess = daily_report(cookie, reportData)
     if (reportSuccess) == -1:
         print("报送失败")
