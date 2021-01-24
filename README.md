@@ -1,6 +1,9 @@
 # SHU_dailyReport
 **仅供交流学习**  
 感谢YMZLT大佬！！
+本modified 版本调整了上海市学生的报送内容：
+"p1$ShiFSH":"是","p1$ShiFZX":"否"语句
+解决了相关报错问题。
 # 项目简介
 
   该项目基于python的request库和bs4库实现上海大学的自动报送。  
