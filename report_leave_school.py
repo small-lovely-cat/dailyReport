@@ -122,13 +122,7 @@ def main(cookie):
     date = timeLocal.strftime('%Y - %m - %d')
     reportUrl = "https://selfreport.shu.edu.cn/DayReport.aspx"
     response = requests.get(reportUrl, cookies=cookie)
-    LastInformation= re.findall("\"SelectedValueArray\":\[\"(.*?)\"", response.text)     #获取上次报送信息
-    Sheng = LastInformation[3]          #省
-    Shi = LastInformation[4]            #市
-    Xian = LastInformation[5]           #县
-    detailedLocation = re.findall("\"详细地址\",\"Text\":\"(.*?)\"", response.text)[0]
-    F_State_Shi = json.loads( re.findall("\"F_Items\":(.*?),\"SelectedValueArray\"", response.text)[10])
-    F_State_Xian = json.loads(re.findall("\"F_Items\":(.*?),\"SelectedValueArray\"", response.text)[11])
+  
     #print(Sheng, Shi, Xian, detailedLocation, F_State_Shi, F_State_Xian)
     reportData = {"date": date,
                 "campusLocation": "不在校", "location": detailedLocation, "sheng": Sheng, "shi": Shi,
