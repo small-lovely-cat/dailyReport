@@ -126,7 +126,6 @@ def main(cookie):
     Sheng = LastInformation[3]          #省
     Shi = LastInformation[4]            #市
     Xian = LastInformation[5]           #县
- 
     F_State_Shi = json.loads( re.findall("\"F_Items\":(.*?),\"SelectedValueArray\"", response.text)[10])
     F_State_Xian = json.loads(re.findall("\"F_Items\":(.*?),\"SelectedValueArray\"", response.text)[11])
     #print(Sheng, Shi, Xian, detailedLocation, F_State_Shi, F_State_Xian)
