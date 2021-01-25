@@ -26,7 +26,6 @@ if (__name__ == "__main__"):
     }
     studentId = sys.argv[1]
     password = sys.argv[2]
-    detailedlocation =says.argv[3]
     studentInfo = [studentId, password]
     cookie = get_cookies(studentInfo)
     try:
