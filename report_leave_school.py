@@ -125,7 +125,7 @@ def main(cookie):
     reportUrl = "https://selfreport.shu.edu.cn/DayReport.aspx"
     response = requests.get(reportUrl, cookies=cookie)
     LastInformation= re.findall("\"SelectedValueArray\":\[\"(.*?)\"", response.text)     #获取上次报送信息
-    Sheng = LastInformation[3]          #省
+    Sheng = 上海          #省
     Shi = LastInformation[4]            #市
     Xian = LastInformation[5]           #县
     detailedLocation = re.findall("\"Text\":\"(.*?)\"", response.text)[1]
