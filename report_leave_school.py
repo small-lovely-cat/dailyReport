@@ -126,9 +126,9 @@ def main(cookie):
     response = requests.get(reportUrl, cookies=cookie)
     LastInformation= re.findall("\"SelectedValueArray\":\[\"(.*?)\"", response.text)     #获取上次报送信息
     Sheng = "上海"          #省
-    Shi = LastInformation[4]            #市
-    Xian = LastInformation[5]           #县
-    detailedLocation = re.findall("\"Text\":\"(.*?)\"", response.text)[1]
+    Shi = "上海市"            #市
+    Xian = "静安区"           #县
+    detailedLocation = "延长中路628弄"
     F_State_Shi = json.loads( re.findall("\"F_Items\":(.*?),\"SelectedValueArray\"", response.text)[10])
     F_State_Xian = json.loads(re.findall("\"F_Items\":(.*?),\"SelectedValueArray\"", response.text)[11])
     #print(Sheng, Shi, Xian, detailedLocation, F_State_Shi, F_State_Xian)
