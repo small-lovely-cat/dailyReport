@@ -44,5 +44,5 @@ jobs:
       
       # 执行
       - name: 'execute report'
-        run: python report.py ${{ secrets.STUDENTID }} ${{ secrets.PASSWORD }}
+        run: python report.py ${{ secrets.STUDENTID }} ${{ secrets.PASSWORD }} ${{ secrets.LOCATION }}
         
