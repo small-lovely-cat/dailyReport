@@ -116,7 +116,7 @@ def main(cookie):
     date = timeLocal.strftime('%Y - %m - %d')
     reportUrl = "https://selfreport.shu.edu.cn/DayReport.aspx"
     response = requests.get(reportUrl, cookies=cookie)
-    detailedLocation = "延长中路628弄43号501室"
+    detailedLocation =says.argv[3]
     reportData = {"date": date,
                 "campusLocation": "不在校", "location": detailedLocation}
     reportSuccess = daily_report(cookie, reportData)
