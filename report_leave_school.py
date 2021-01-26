@@ -110,13 +110,13 @@ def get_FState(reportData):
     return F_State_New
 
 
-def main(cookie):
+def main(cookie,detailedLocation):
     timeUTC = datetime.datetime.utcnow()
     timeLocal = timeUTC + datetime.timedelta(hours=8)
     date = timeLocal.strftime('%Y - %m - %d')
     reportUrl = "https://selfreport.shu.edu.cn/DayReport.aspx"
     response = requests.get(reportUrl, cookies=cookie)
-    detailedLocation =sys.argv[3]
+    detailedLocation =detailedLocation
     reportData = {"date": date,
                 "campusLocation": "不在校", "location": detailedLocation}
     reportSuccess = daily_report(cookie, reportData)
