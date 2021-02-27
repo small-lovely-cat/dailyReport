@@ -40,15 +40,15 @@ def daily_report(cookie,reportData,delayReport = False):  #最后个参数是补
         "p1$ddlGuoJia$Value": "-1",
         "p1$ddlGuoJia": "选择国家",
         "p1$ShiFSH":"是",	
-	"p1$ShiFZX":"否",
+	"p1$ShiFZX":"是",#否
         "p1$ddlSheng$Value": "上海",  #当天所在省
         "p1$ddlSheng":  "上海",
         "p1$ddlShi$Value": "上海市",#当天所在市
         "p1$ddlShi": "上海市",
-        "p1$ddlXian$Value": "静安区",
-        "p1$ddlXian": "静安区",
+        "p1$ddlXian$Value": "宝山区",#静安区
+        "p1$ddlXian": "宝山区",#静安区
         "p1$XiangXDZ": reportData["location"],
-	"p1$ShiFZJ": "是",
+	#"p1$ShiFZJ": "是",
         "p1$FengXDQDL": "否",
         "p1$TongZWDLH": "否",
         "p1$CengFWH": "否",
