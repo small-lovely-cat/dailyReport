@@ -48,7 +48,7 @@ def daily_report(cookie,reportData,delayReport = False):  #最后个参数是补
         "p1$ddlXian$Value": "宝山区",#静安区
         "p1$ddlXian": "宝山区",#静安区
         "p1$XiangXDZ": reportData["location"],
-	#"p1$ShiFZJ": "是",
+	"p1$ShiFZJ": "否",
         "p1$FengXDQDL": "否",
         "p1$TongZWDLH": "否",
         "p1$CengFWH": "否",
