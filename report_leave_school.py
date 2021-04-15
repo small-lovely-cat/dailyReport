@@ -73,7 +73,7 @@ def daily_report(cookie,reportData,delayReport = False):  #最后个参数是补
         "p1$SuiSM": "绿色",
         "p1$LvMa14Days": "是",
         "p1$Address2": "",
-        "F_TARGET": "p1_ctl00_btnSubmit",
+       #"F_TARGET": "p1_ctl00_btnSubmit",
         "p1_ContentPanel1_Collapsed": "true",
         "p1_GeLSM_Collapsed": "false",
         "p1_Collapsed": "false",
