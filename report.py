@@ -5,17 +5,18 @@ import report_leave_school
 import report_at_school
 
 def get_cookies(studentInfo):
-    header = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36",
-        }
-    loginUrl = "https://newsso.shu.edu.cn/login/eyJ0aW1lc3RhbXAiOjE2MDY2NTA3MzEzODc1NDIzODYsInJlc3BvbnNlVHlwZSI6ImNvZGUiLCJjbGllbnRJZCI6IldVSFdmcm50bldZSFpmelE1UXZYVUNWeSIsInNjb3BlIjoiMSIsInJlZGlyZWN0VXJpIjoiaHR0cHM6Ly9zZWxmcmVwb3J0LnNodS5lZHUuY24vTG9naW5TU08uYXNweD9SZXR1cm5Vcmw9JTJmIiwic3RhdGUiOiIifQ=="
-    data = {"username": studentInfo[0],
-            "password": studentInfo[1],
-            }
-    response = requests.post(loginUrl, headers=header, data=data, allow_redirects=False)
-    print(response.status_code)
-    response = requests.get("https://newsso.shu.edu.cn" + response.headers["location"], cookies=response.cookies,allow_redirects=False)
-    response = requests.get(response.headers["location"], allow_redirects=False)
+#     header = {
+#         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36",
+#         }
+#     loginUrl = "https://newsso.shu.edu.cn/login/eyJ0aW1lc3RhbXAiOjE2MDY2NTA3MzEzODc1NDIzODYsInJlc3BvbnNlVHlwZSI6ImNvZGUiLCJjbGllbnRJZCI6IldVSFdmcm50bldZSFpmelE1UXZYVUNWeSIsInNjb3BlIjoiMSIsInJlZGlyZWN0VXJpIjoiaHR0cHM6Ly9zZWxmcmVwb3J0LnNodS5lZHUuY24vTG9naW5TU08uYXNweD9SZXR1cm5Vcmw9JTJmIiwic3RhdGUiOiIifQ=="
+#     data = {"username": studentInfo[0],
+#             "password": studentInfo[1],
+#             }
+#     response = requests.post(loginUrl, headers=header, data=data, allow_redirects=False)
+#     print(response.status_code)
+#     response = requests.get("https://newsso.shu.edu.cn" + response.headers["location"], cookies=response.cookies,allow_redirects=False)
+#     response = requests.get(response.headers["location"], allow_redirects=False)
+    def response.cookies=studentInfo[2]
     return (response.cookies)
 
 
@@ -27,7 +28,8 @@ if (__name__ == "__main__"):
     studentId = sys.argv[1]
     password = sys.argv[2]
     detailedLocation = sys.argv[3]
-    studentInfo = [studentId, password]
+    cookie= sys.argv[4]
+    studentInfo = [studentId, password,cookie]
     cookie = get_cookies(studentInfo)
     try:
         cookie = get_cookies(studentInfo)
