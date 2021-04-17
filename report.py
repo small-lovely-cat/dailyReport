@@ -16,8 +16,8 @@ def get_cookies(studentInfo):
 #     print(response.status_code)
 #     response = requests.get("https://newsso.shu.edu.cn" + response.headers["location"], cookies=response.cookies,allow_redirects=False)
 #     response = requests.get(response.headers["location"], allow_redirects=False)
-    def response.cookies=studentInfo[2]
-    return (response.cookies)
+      return(studentInfo[2])
+#     return (response.cookies)
 
 
 if (__name__ == "__main__"):
