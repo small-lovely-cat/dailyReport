@@ -36,8 +36,8 @@ if (__name__ == "__main__"):
     except:
         print("无法获取学号  " + studentInfo[0] + "  的cookie,可能是账号密码错误")
     else:
-        response = requests.get(url=url,headers=header,cookies=cookie)  #通过跳转地址是每日一报还是两报来判断是否在校
-        if (response.url=="https://selfreport.shu.edu.cn/DayReport.aspx"):
-            report_leave_school.main(cookie,detailedLocation)
-        elif (response.url==url):
+#         response = requests.get(url=url,headers=header,cookies=cookie)  #通过跳转地址是每日一报还是两报来判断是否在校
+#         if (response.url=="https://selfreport.shu.edu.cn/DayReport.aspx"):
+#             report_leave_school.main(cookie,detailedLocation)
+#         elif (response.url==url):
             report_at_school.main(cookie)
