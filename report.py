@@ -13,7 +13,7 @@ def get_cookies(studentInfo):
             "password": studentInfo[1],
             }
     response = requests.post(loginUrl, headers=header, data=data, allow_redirects=False)
-    print(response.headers)
+    print(response.headers["connection"])
     response = requests.get("https://newsso.shu.edu.cn" + response.headers["location"], cookies=response.cookies,allow_redirects=False)
     response = requests.get(response.headers["location"], allow_redirects=False)
     return (response.cookies)
