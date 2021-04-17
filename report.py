@@ -13,8 +13,7 @@ def get_cookies(studentInfo):
             "password": studentInfo[1],
             }
     response = requests.post(loginUrl, headers=header, data=data, allow_redirects=False)
-    response = requests.get("https://newsso.shu.edu.cn" + "/oauth/authorize?client_id=WUHWfrntnWYHZfzQ5QvXUCVy&response_type=code&scope=1&redirect_uri=https%3A%2F%2Fselfreport.shu.edu.cn%2FLoginSSO.aspx%3FReturnUrl%3D%252f&state=", cookies=response.cookies,allow_redirects=False)
-#     response = requests.get("https://newsso.shu.edu.cn" + response.headers["location"], cookies=response.cookies,allow_redirects=False)
+    response = requests.get("https://newsso.shu.edu.cn" + response.headers["location"], cookies=response.cookies,allow_redirects=False)
     response = requests.get(response.headers["location"], allow_redirects=False)
     return (response.cookies)
 
