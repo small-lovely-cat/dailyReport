@@ -15,22 +15,22 @@ def get_cookies(studentInfo):
     response = requests.get("https://newsso.shu.edu.cn/static/js/main.js?v=1.0", headers=header)
     #pubkey_str = re.findall("setPublicKey\(\"(.*?)\"\)", response.text)[0]
     #pubkey_str = pubkey_str.replace(r'\n', '\n')                #'\\n'换'\n'
-    '''
+    
     pubkey = rsa.PublicKey.load_pkcs1_openssl_pem(b"""-----BEGIN PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDl/aCgRl9f/4ON9MewoVnV58OL
 OU2ALBi2FKc5yIsfSpivKxe7A6FitJjHva3WpM7gvVOinMehp6if2UNIkbaN+plW
 f5IwqEVxsNZpeixc4GsbY9dXEk3WtRjwGSyDLySzEESH/kpJVoxO7ijRYqU+2oSR
 wTBNePOk1H+LRQokgQIDAQAB
 -----END PUBLIC KEY-----""")
-    '''
-    #pubkey = rsa.PublicKey.load_pkcs1_openssl_pem(pubkey_str)
+    
+   # pubkey = rsa.PublicKey.load_pkcs1_openssl_pem(pubkey)
     crypto = rsa.encrypt(studentInfo[1].encode('utf8'), pubkey)
     data = {"username": studentInfo[0],
             "password": base64.b64encode(crypto)
             }
     response = requests.post(loginUrl, headers=header, data=data, allow_redirects=False)
-    print(response.status_code)
-    response = requests.get("https://newsso.shu.edu.cn" + response.headers["location"], cookies=response.cookies,allow_redirects=False)
+    response = requests.get("https://newsso.shu.edu.cn" + response.headers["location"], cookies=response.cookies,
+                            allow_redirects=False)
     response = requests.get(response.headers["location"], allow_redirects=False)
     return (response.cookies)
 
